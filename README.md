@@ -1,24 +1,12 @@
-# README
+# Портфолио
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Личный сайт-портфолио, представляющий информацию обо мне, мои проекты и контактные данные. Сайт разработан с использованием HTML, CSS, Bootstrap для создания адаптивного и современного дизайна.
 
-Things you may want to cover:
+#### TODO:
 
-* Ruby version
+- адаптивность
+- Y.Метрика
 
-* System dependencies
+## Лицензия
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Этот проект распространяется под лицензией MIT. Подробнее см. в файле [LICENSE](LICENSE).

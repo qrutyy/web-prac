@@ -1,5 +1,9 @@
 body {
-        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        /* background-image: url('images/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; */
         font-family: 'Arial', sans-serif;
 }
 

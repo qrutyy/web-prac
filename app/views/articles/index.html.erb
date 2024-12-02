@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
+
+      ym(99093697, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/99093697"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P8FQ995H");
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P8FQ995H"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mikhail Gavrilenko Portfolio - Projects</title>
+    <meta
+      name="description"
+      content="Portfolio website of Mikhail Gavrilenko, a student at SPbU specializing in system programming, Linux Kernel development, and data storage systems."
+    />
+    <meta
+      name="keywords"
+      content="Mikhail Gavrilenko, system programming, Linux Kernel, projects, research, SPbU, data storage systems, DSS, C, ls-bdd, log-structured storage, graphs, Ocaml"
+    />
+    <meta property="og:title" content="Mikhail Gavrilenko Portfolio" />
+    <meta
+      property="og:description"
+      content="Projects and research in system programming, data storage systems and Linux Kernel development."
+    />
+
+    <meta
+      property="og:image"
+      content="http://qrutyq2p.beget.tech/personal-photo.jpg"
+    />
+    <meta property="og:url" content="http://qrutyq2p.beget.tech" />
+    <meta property="og:type" content="website" />
+    <meta name="author" content="Mikhail Gavrilenko" />
+    <link rel="canonical" href="http://qrutyq2p.beget.tech" />
+    <link rel="icon" href="<%= asset_path 'ant.ico' %>" type="image/x-icon" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="container-fluid p-3 bg-transparent">
+      <div class="d-flex justify-content-start">
+        <p class="mb-0 pl-5 lg-2">Portfolio.</p>
+      </div>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <div class="row pt-3 p-4 pl-6 pr-6 justify-content-center">
+          <div class="col-lg-2 col-md-3">
+            <div class="jumbotron bg-white rounded-5 shadow text-center p-4">
+              <div class="mb-4">
+                <img
+                  src="<%= asset_path 'personal-photo.jpg' %>"
+                  alt="Profile Picture"
+                  class="rounded-circle"
+                  style="width: 120px; height: 120px; object-fit: cover"
+                />
+                <!-- <img
+                src=image_tag("personal-photo.jpg") alt="Profile Picture"
+                class="rounded-circle" style="width: 120px; height: 120px;
+                object-fit: cover" /> -->
+              </div>
+              <h1 class="display-6">Mikhail Gavrilenko</h1>
+              <p class="text-muted">
+                Student of the System Programming department, SPbU
+              </p>
+              <div class="text-start">
+                <p><strong>Phone:</strong> +7 (800) 555 35-35</p>
+                <p><strong>Email:</strong> qrutyq@gmail.com</p>
+                <p><strong>Location:</strong> Saint-P, Russia</p>
+              </div>
+              <button type="button" class="btn btn-light w-100 mt-3">
+                [WIP] Download CV
+              </button>
+            </div>
+            <div class="jumbotron bg-white rounded-5 shadow text-center p-4">
+              <div class="d-flex justify-content-center mb-2">
+                <a
+                  href="https://github.com/qrutyy"
+                  target="_blank"
+                  class="btn btn-dark mx-2"
+                >
+                  <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+
+                <a
+                  href="https://t.me/mequefenrt"
+                  target="_blank"
+                  class="btn btn-primary mx-2"
+                >
+                  <i class="fab fa-telegram-plane mr-2"></i> Telegram
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-3">
+            <div class="jumbotron bg-white rounded-5 shadow p-4">
+              <h2 class="display-6 mb-3">About Me</h2>
+              <p>
+                Im a student from Saint-Petersburg, interested in C, System
+                Programming, Data Storage Systems and Kernel development. I
+                enjoy research-based problems and studying.
+              </p>
+              <p>
+                My aim is to skill up in my study field, without loosing my
+                mind.
+              </p>
+            </div>
+
+            <div class="jumbotron bg-white rounded-5 shadow p-4">
+              <h2 class="display-6 mb-3">Researches & Projects</h2>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <div class="card p-3 mb-3">
+                    <div
+                      class="d-flex justify-content-start align-items-center"
+                    >
+                      <div class="ms-3">
+                        <h5>
+                          <a
+                            href="https://github.com/qrutyy/ls-bdd"
+                            target="_blank"
+                            class="text-dark text-decoration-none"
+                          >
+                            LS-BDD (Implementation of Log-Structured block
+                            device in Linux kernel)
+                          </a>
+                        </h5>
+                        <p>
+                          Modern data storage systems (DSS) demand high
+                          performance from HDD I/O operations, which can be
+                          optimized using hardware and software solutions. In
+                          Linux, block devices serve as the software abstraction
+                          for HDDs, enabling data processing by interacting with
+                          fixed-size blocks. To improve HDD performance under
+                          random workloads, a log-structured approach is
+                          proposed, redirecting random writes to a sequential
+                          log to minimize access delays. Selecting an efficient
+                          data structure, such as the B+ tree, is crucial for
+                          mapping data block addresses, as it supports fast
+                          sequential searches and updates. Even though,
+                          log-structured storage isn't new — further research is
+                          needed to refine this approach and explore alternative
+                          data structures for optimal implementation.
+                        </p>
+                        <p>
+                          LS-BDD is a block device driver that implements
+                          log-structured storage based on B+-tree, RB-tree,
+                          Skiplist and Hashtable data structures. Driver is
+                          based on BIO request management and supports BIO
+                          split. Block device's integrity was twice tested,
+                          using manual scripts and FIO.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card p-3 mb-3">
+                    <div
+                      class="d-flex justify-content-start align-items-center"
+                    >
+                      <div class="ms-3">
+                        <h5>
+                          <a
+                            href="https://github.com/spbu-coding-2023/graphs-graph-2"
+                            target="_blank"
+                            class="text-dark text-decoration-none"
+                          >
+                            Graph Vis App (WUDU)
+                          </a>
+                        </h5>
+                        <p>
+                          Application that lets you create, save, visualise,
+                          analyse and modify 4 different types of graphs
+                        </p>
+                        <ul>
+                          <li>Support 4 types of graphs</li>
+                          <li>
+                            Use all in all - 9 algorithms (SCC, bridges,
+                            shortest paths, cycles, layout, communities, etc.
+                            see wiki)
+                          </li>
+                          <li>
+                            Store graphs anywhere you want: SQLite, Neo4J, JSON
+                            (WIP) (see wiki)
+                          </li>
+                          <li>Drag, zoom, replace nodes</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card p-3 mb-3">
+                    <div
+                      class="d-flex justify-content-start align-items-center"
+                    >
+                      <div class="ms-3">
+                        <h5>
+                          <a
+                            href="https://github.com/qrutyy/OcamlADT/"
+                            target="_blank"
+                            class="text-dark text-decoration-none"
+                          >
+                            Ocaml Interpretator [WIP]
+                          </a>
+                        </h5>
+                        <p>
+                          Interpretator of MiniML (shrinked Ocaml) language.
+                          Should include:
+                        </p>
+
+                        <ul>
+                          <li>Parser</li>
+                          <li>Typechecker</li>
+                          <li>Interpretator</li>
+                          <li>ADT support</li>
+                          <li>Auto-Generative testing</li>
+                        </ul>
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

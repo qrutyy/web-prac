@@ -123,58 +123,66 @@
   </head>
   <body>
     <header class="container-fluid pl-20 pr-20 bg-transparent">
-      <div class="d-flex pr-7 justify-content-end">
-        <script async src="https://telegram.org/js/telegram-widget.js?22" 
-          data-telegram-login="auth_qruty_bot" 
-          data-size="large" 
-          data-radius="10"
-          data-auth-url="/auth/telegram/callback" 
-          data-request-access="write">
-        </script>
-<div>
-  <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
-  <script type="text/javascript">
-    if ('VKIDSDK' in window) {
-      const VKID = window.VKIDSDK;
+      <div class="d-flex flex-row pt-3 justify-content-end">
+        <div class="pl-2 pr-2">
+          <script
+            async
+            src="https://telegram.org/js/telegram-widget.js?22"
+            data-telegram-login="auth_qruty_bot"
+            data-size="large"
+            data-radius="10"
+            data-auth-url="/auth/telegram/callback"
+            data-request-access="write"
+          ></script>
+        </div>
+        <div class="pl-2 pr-2">
+          <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
+          <script type="text/javascript">
+            if ("VKIDSDK" in window) {
+              const VKID = window.VKIDSDK;
 
-      VKID.Config.init({
-        app: 52827998,
-        redirectUrl: 'https://web-prac-fbka.onrender.com',
-        responseMode: VKID.ConfigResponseMode.Callback,
-        source: VKID.ConfigSource.LOWCODE,
-        scope: '', // Заполните нужными доступами по необходимости
-      });
+              VKID.Config.init({
+                app: 52827998,
+                redirectUrl: "https://web-prac-fbka.onrender.com",
+                responseMode: VKID.ConfigResponseMode.Callback,
+                source: VKID.ConfigSource.LOWCODE,
+                scope: "", // Заполните нужными доступами по необходимости
+              });
 
-      const oneTap = new VKID.OneTap();
+              const oneTap = new VKID.OneTap();
 
-      oneTap.render({
-        container: document.currentScript.parentElement,
-        showAlternativeLogin: true,
-        styles: {
-          width: 265,
-          height: 40
-        }
-      })
-      .on(VKID.WidgetEvents.ERROR, vkidOnError)
-      .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
-        const code = payload.code;
-        const deviceId = payload.device_id;
+              oneTap
+                .render({
+                  container: document.currentScript.parentElement,
+                  showAlternativeLogin: true,
+                  styles: {
+                    width: 225,
+                    height: 40,
+                  },
+                })
+                .on(VKID.WidgetEvents.ERROR, vkidOnError)
+                .on(
+                  VKID.OneTapInternalEvents.LOGIN_SUCCESS,
+                  function (payload) {
+                    const code = payload.code;
+                    const deviceId = payload.device_id;
 
-        VKID.Auth.exchangeCode(code, deviceId)
-          .then(vkidOnSuccess)
-          .catch(vkidOnError);
-      });
-    
-      function vkidOnSuccess(data) {
-        // Обработка полученного результата
-      }
-    
-      function vkidOnError(error) {
-        // Обработка ошибки
-      }
-    }
-  </script>
-</div>
+                    VKID.Auth.exchangeCode(code, deviceId)
+                      .then(vkidOnSuccess)
+                      .catch(vkidOnError);
+                  }
+                );
+
+              function vkidOnSuccess(data) {
+                // Обработка полученного результата
+              }
+
+              function vkidOnError(error) {
+                // Обработка ошибки
+              }
+            }
+          </script>
+        </div>
       </div>
     </header>
     <main>

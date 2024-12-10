@@ -122,8 +122,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="container-fluid p-3 bg-transparent">
-      <div class="d-flex justify-content-end">
+    <header class="container-fluid pl-20 pr-20 bg-transparent">
+      <div class="d-flex pr-7 justify-content-end">
         <script async src="https://telegram.org/js/telegram-widget.js?22" 
           data-telegram-login="auth_qruty_bot" 
           data-size="large" 
@@ -149,7 +149,11 @@
 
       oneTap.render({
         container: document.currentScript.parentElement,
-        showAlternativeLogin: true
+        showAlternativeLogin: true,
+        styles: {
+          width: 265,
+          height: 40
+        }
       })
       .on(VKID.WidgetEvents.ERROR, vkidOnError)
       .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {

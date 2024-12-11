@@ -8,10 +8,11 @@ class AuthController < ApplicationController
     auth_data = params.except(:controller, :action)
       session[:authorized] = true
       render json: { message: 'Успешная авторизация', user: auth_data }
-    else
+  =begin 
+else
       session[:authorized] = false
       render json: { error: 'Неверные данные авторизации' }, status: :unauthorized
-    end
+    =end
   end
 
   private
@@ -23,7 +24,7 @@ class AuthController < ApplicationController
     hash == auth_data['hash']
   end
 =end
-def vk_success
+  def vk_success
     if params[:success]
       session[:authorized] = true
       render json: { message: 'Session updated successfully' }, status: :ok

@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  get "auth/start"
-  get "auth/verify"
-  root "articles#index"
-  get "/articles", to: "articles#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  get '/auth/vk/callback', to: 'auth#vk_callback'
-  get '/auth/telegram/callback', to: 'auth#telegram'
+  scope "(:locale)", locale: /en|ru/ do
+    get "auth/start"
+    get "auth/verify"
+    root "articles#index"
+    get "/articles", to: "articles#index"
+    post '/auth/vk/success', to: 'auth#vk_success'
+    get '/auth/telegram/callback', to: 'auth#telegram'
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+    get "up" => "rails/health#show", as: :rails_health_check
 
+  end
+  
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

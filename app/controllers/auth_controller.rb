@@ -18,7 +18,6 @@ class AuthController < ApplicationController
       render json: { message: "Авторизация не удалась", authorized: false }
     end
   end
-end
 
   private
 

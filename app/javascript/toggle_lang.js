@@ -1,6 +1,7 @@
 
 // toggle-lang.js
 document.addEventListener('DOMContentLoaded', () => {
+	console.log("Script loaded");
  const languageSwitch = document.getElementById('languageSwitch');
   const languageSwitchLabel = document.getElementById('languageSwitchLabel');
 

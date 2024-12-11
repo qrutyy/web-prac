@@ -3,7 +3,7 @@ en:
   short_desc: "Student of the System Programming department, SPbU"
   phone: "Phone number:"
   email: "Email:"
-  location: "Location:"
+  location: "Location: "
   location-t: "Saint-P, Russia"
   cv-button: "[WIP] Download CV"
   links: "My links:"

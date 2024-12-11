@@ -122,8 +122,16 @@
     ></script>
   </head>
   <body>
-    <header class="container-fluid pl-20 pr-20 bg-transparent col-sm-20">
-      <div class="d-flex flex-row pt-3 gap-3 justify-content-end">
+<style>
+@media (max-width: 576px) {
+  .d-flex {
+    flex-direction: column; /* Switches flex direction to column */
+    align-items: center; /* Optional: aligns items to the start of the column */
+  }
+}
+</style>
+    <header class="container-fluid pl-20 pr-20 bg-transparent">
+      <div class="d-flex pt-3 gap-3 justify-content-end">
         <div class="pl-2 pr-2">
           <script
             async
@@ -266,7 +274,7 @@
               <h1 id="name" class="display-6"><%= t('name') %></h1>
               <div class="text-start">
                 <p id="phone">
-                  <strong><%= t('phone') %></strong> +7 (800) 555 35-35
+                  <strong><%= t('phone') %></strong> +7 (911) 964 50-15
                 </p>
                 <p id="email">
                   <strong><%= t('email') %></strong> qrutyq@gmail.com

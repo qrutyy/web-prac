@@ -12,11 +12,11 @@ class AuthController < ApplicationController
     # Check if the text contains "Успешная авторизация"
     if text.include?("Успешная авторизация")
       session[:authorized] = true
-      render json: { message: "Успешная авторизация", authorized: true }
+      redirect_to root_path, notice: "Успешная авторизация"
     else
       session[:authorized] = false
-      render json: { message: "Авторизация не удалась", authorized: false }
-    end
+      redirect_to root_path, notice: "Авторизация не удалась"
+      end
   end
 
   private

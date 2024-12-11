@@ -122,7 +122,7 @@
     ></script>
   </head>
   <body>
-    <header class="container-fluid pl-20 pr-20 bg-transparent">
+    <header class="container-fluid pl-20 pr-20 bg-transparent col-sm-20">
       <div class="d-flex flex-row pt-3 gap-3 justify-content-end">
         <div class="pl-2 pr-2">
           <script
@@ -133,8 +133,8 @@
             data-radius="10"
             data-auth-url="/auth/telegram/callback"
             data-request-access="write"
-            ></script>
-<script type="text/javascript">
+          ></script>
+          <script type="text/javascript">
             function onTelegramAuth(user) {
               alert(
                 "Logged in as " +
@@ -148,7 +148,6 @@
               );
             }
           </script>
-
         </div>
         <div class="pl-2 pr-2">
           <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
@@ -245,9 +244,16 @@
       </div>
     </header>
     <main>
+      <style>
+        @media (min-width: 992px) {
+          .row-wrapper {
+            min-width: 290px;
+          }
+        }
+      </style>
       <div class="container-fluid">
         <div class="row pt-3 p-4 pl-6 pr-6 justify-content-center">
-          <div class="col-lg-2 col-md-3">
+          <div class="col-lg-2 col-md-4 col-sm-12 row-wrapper">
             <div class="bg-white rounded-5 shadow text-center p-4 mb-4">
               <div class="mb-4">
                 <img
@@ -277,41 +283,59 @@
                 <%= t('cv-button') %>
               </button>
             </div>
+
             <div class="bg-white rounded-5 shadow text-center p-4 mb-4">
               <h4 id="links" class="pb-2"><%= t('links') %></h4>
-              <div class="d-flex justify-content-center mb-2">
-                <a
-                  href="https://github.com/qrutyy"
-                  target="_blank"
-                  class="btn btn-dark mx-2"
-                >
-                  <i class="fab fa-github mr-2"></i> GitHub
-                </a>
+              <div class="row justify-content-center">
+                <!-- GitHub Button -->
+                <div class="col-12 col-sm-10 col-md-6 mb-2">
+                  <a
+                    href="https://github.com/qrutyy"
+                    target="_blank"
+                    class="btn btn-dark w-100 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fab fa-github me-2"></i> GitHub
+                  </a>
+                </div>
 
-                <a
-                  href="https://t.me/mequefenrt"
-                  target="_blank"
-                  class="btn btn-primary mx-2"
-                >
-                  <i class="fab fa-telegram-plane mr-2"></i> Telegram
-                </a>
+                <!-- Telegram Button -->
+                <div class="col-20 col-sm-10 col-md-6 mb-2">
+                  <a
+                    href="https://t.me/mequefenrt"
+                    target="_blank"
+                    class="btn btn-primary w-100 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fab fa-telegram-plane me-2"></i> Telegram
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-3">
-            <div class="bg-white rounded-5 shadow p-4 mb-4">
+          <style>
+            @media (min-width: 992px) {
+              .res-wrapper {
+                min-width: 555px;
+              }
+              .card-wrapper {
+                min-width: 240px;
+              }
+            }
+          </style>
+
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="bg-white rounded-5 shadow p-4 mb-4 res-wrapper">
               <h2 id="about" class="display-6 mb-3"><%= t('about') %></h2>
               <p id="about_text1"><%= t('about_text1') %></p>
               <p id="about_text2"><%= t('about_text2') %></p>
             </div>
 
-            <div class="bg-white rounded-5 shadow p-4 mb-4">
+            <div class="bg-white rounded-5 shadow p-4 mb-4 res-wrapper">
               <h2 id="research-h" class="display-6 mb-3">
                 <%= t('research-h') %>
               </h2>
               <div class="row mt-3">
-                <div class="col-md-6">
-                  <div class="card p-3 mb-3">
+                <div class="col-12 col-md-12 col-lg-6">
+                  <div class="card p-3 mb-3 card-wrapper">
                     <div
                       class="d-flex justify-content-start align-items-center"
                     >
@@ -332,8 +356,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="card p-3 mb-3">
+                <div class="col-12 col-md-12 col-lg-6">
+                  <div class="card p-3 mb-3 card-wrapper">
                     <div
                       class="d-flex justify-content-start align-items-center"
                     >
@@ -358,7 +382,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card p-3 mb-3">
+                  <div class="card p-3 mb-3 card-wrapper">
                     <div
                       class="d-flex justify-content-start align-items-center"
                     >

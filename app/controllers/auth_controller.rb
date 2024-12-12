@@ -8,7 +8,10 @@ class AuthController < ApplicationController
     # Parse the incoming callback data
     callback_data = params[:callback_query] || params[:message] || {}
     text = callback_data[:text] || callback_data[:data] || ""
-    print(text)
+    puts text.inspect
+    puts 1111.inspect
+    puts callback_data.inspect
+    puts 1111.inspect
 
     # Check if the text contains "Успешная авторизация"
     if text.include?("Успешная авторизация")

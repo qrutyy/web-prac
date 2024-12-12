@@ -3,24 +3,19 @@ require 'base64'
 
 class AuthController < ApplicationController
   TELEGRAM_TOKEN = ENV['TELEGRAM_TOKEN']
+def telegram
+    # Verify the hash to confirm authenticity
 
-  def telegram
-    # Parse the incoming callback data
-    callback_data = params[:callback_query] || params[:message] || {}
-    text = callback_data[:text] || callback_data[:data] || ""
-    puts text.inspect
-    puts 1111.inspect
-    puts callback_data.inspect
-    puts 1111.inspect
+    # If the hash is valid, process the user data
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    username = params[:username]
 
-    # Check if the text contains "Успешная авторизация"
-    if text.include?("Успешная авторизация")
-      session[:authorized] = true
-      redirect_to root_path, notice: "Успешная авторизация"
-    else
-      session[:authorized] = false
-      redirect_to root_path, notice: "Авторизация не удалась"
-      end
+    # Example: Save user information in session or database
+    session[:authorized] = true
+    session[:user] = { id: params[:id], first_name: first_name, last_name: last_name, username: username }
+
+    redirect_to root_path, notice: "Успешная авторизация. Добро пожаловать, #{first_name}!"
   end
 
   private

@@ -162,7 +162,9 @@
           <script type="text/javascript">
             if ("VKIDSDK" in window) {
               const VKID = window.VKIDSDK;
-
+              if (<%= session[:authorized] ? 'true' : 'false' %>) {
+                document.querySelector('#vkButtonContainer').style.display = 'none';
+              } else {
               VKID.Config.init({
                 app: 52827998,
                 redirectUrl: "https://web-prac-fbka.onrender.com",
@@ -228,6 +230,7 @@
               function vkidOnError(error) {
                 console.error("VKID Error:", error);
               }
+              }
             }
           </script>
         </div>
@@ -242,7 +245,7 @@
             document.getElementById('localeHiddenField').value = this.checked ?
             'en' : 'ru';">
             <label class="form-check-label" for="languageSwitch">
-              <%= 'EN/RU' %>
+              <%= 'RU/EN' %>
             </label>
             <% end %> <% else %>
             <p class="text-center">Authorize to change the language (RU/EN).</p>

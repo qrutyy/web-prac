@@ -161,83 +161,21 @@
           <% end %>
         </div>
         <div class="pl-2 pr-2">
-          <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
-          <script type="text/javascript">
-                if ("VKIDSDK" in window) {
-                const VKID = window.VKIDSDK;
-                if (<%= session[:authorized] ? 'true' : 'false' %>) {
-                  document.querySelector('#vkButtonContainer').style.display = 'none';
-                } else {
-                  VKID.Config.init({
-                    app: 52827998,
-                    redirectUrl: "https://web-prac-fbka.onrender.com",
-                    responseMode: VKID.ConfigResponseMode.Callback,
-                    source: VKID.ConfigSource.LOWCODE,
-                    scope: "",
-                  });
+          <% unless session[:authorized] %>
+            <script>
+              function githubLogin() {
+                const clientId = ENV['YOUR_GITHUB_CLIENT_ID']; 
+                const redirectUri = 'https://web-prac-fbka.onrender.com/auth/github/callback'; // Replace with your callback URL
 
-                  const oneTap = new VKID.OneTap();
+                const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user`;
 
-                  oneTap.render({
-                    container: document.currentScript.parentElement,
-                    showAlternativeLogin: true,
-                    styles: {
-                      borderRadius: 12,
-                      width: 225,
-                      height: 40,
-                    },
-                  })
-
-                  .on(VKID.WidgetEvents.ERROR, vkidOnError)
-                  .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS,
-                    function (payload) {
-                      const code = payload.code;
-                      const deviceId = payload.device_id;
-
-                      VKID.Auth.exchangeCode(code, deviceId)
-                        .then(vkidOnSuccess)
-                        .catch(vkidOnError);
-                    }
-                  );
-
-                function onAuthSuccess(data) {
-                  fetch('/auth/vk/success', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content,
-                    },
-                    body: JSON.stringify({
-                      success: true,
-                      user_id: data.user_id, // или data.user.id, в зависимости от структуры ответа
-                      access_token: data.access_token,
-                    }),
-                  })
-                    .then((response) => {
-                      if (response.ok) {
-                        alert('Авторизация прошла успешно!');
-                        // Скрываем кнопку виджета
-                        document.getElementById('VkIdSdkOAuthList').style.display = 'none';
-                        location.reload(); // Обновляем страницу
-                      } else {
-                        return response.json().then((error) => {
-                          console.error('Server error:', error);
-                          alert('Ошибка авторизации на сервере.');
-                        });
-                      }
-                    })
-                    .catch((error) => {
-                      console.error('Fetch error:', error);
-                      alert('Не удалось связаться с сервером.');
-                    });
-                }
-
-                function vkidOnError(error) {
-                  console.error("VKID Error:", error);
-                }
+                window.location.href = authUrl;
               }
-            }
-          </script>
+            </script>
+            <button onclick="githubLogin()" class="btn btn-dark">
+              <i class="fab fa-github me-2"></i> Login with GitHub
+            </button>
+          <% end %>
         </div>
         <div class="pt-2 pr-2">
           <div class="form-check form-switch justify-content-center">

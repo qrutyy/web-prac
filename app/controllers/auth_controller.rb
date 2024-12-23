@@ -55,7 +55,7 @@ def github
 end
 
   def github_failure
-    session[:authorized] = false
+    session[:authorized] = true
     redirect_to root_path, alert: "Authorization failed. Please try again."
   end
 end

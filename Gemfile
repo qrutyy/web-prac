@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'omniauth-rails_csrf_protection'
-gem 'omniauth-github', '~> 1.0'
+gem 'omniauth-github', '~> 2.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]

@@ -58,20 +58,4 @@ end
     session[:authorized] = false
     redirect_to root_path, alert: "Authorization failed. Please try again."
   end
-  
-  def vk_success
-    if params[:success]
-      vk_id = params[:vk_id]
-      user = User.find_or_create_by(vk_id: vk_id) do |user|
-        user.first_name = params[:first_name]
-        user.last_name = params[:last_name]
-      end
-
-      session[:authorized] = true
-      session[:user_id] = user.id
-      render json: { message: 'Session updated successfully' }, status: :ok
-    else
-      render json: { error: 'Authorization failed' }, status: :unprocessable_entity
-    end
-  end
 end

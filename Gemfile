@@ -4,7 +4,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0.2'
 gem 'omniauth-github', '~> 2.0'
 gem 'omniauth', '~> 2.1.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record

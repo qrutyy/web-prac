@@ -164,7 +164,7 @@
           <% unless session[:authorized] %>
             <script>
               function githubLogin() {
-                const clientId = ENV['YOUR_GITHUB_CLIENT_ID']; 
+                const clientId = ENV['GITHUB_CLIENT_ID']; 
                 const redirectUri = 'https://web-prac-fbka.onrender.com/auth/github/callback'; // Replace with your callback URL
 
                 const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user`;

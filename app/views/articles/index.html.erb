@@ -162,19 +162,35 @@
         </div>
         <div class="pl-2 pr-2">
           <% unless session[:authorized] %>
-            <script>
-              function githubLogin() {
-                const clientId = 'Ov23li0asy7Sg041vJ2d'; 
-                const redirectUri = 'https://web-prac-fbka.onrender.com/auth/github/callback';
+          <script>
+            function githubLogin() {
+              const clientId = "Ov23li0asy7Sg041vJ2d";
+              const redirectUri =
+                "https://web-prac-fbka.onrender.com/auth/github/callback";
 
-                const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user,user:email`;
+              const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user,user:email`;
 
-                window.location.href = authUrl;
-              }
-            </script>
-            <button onclick="githubLogin()" class="btn btn-dark rounded-10">
-              <i class="fab fa-github me-2"></i> Login with GitHub
-            </button>
+              window.location.href = authUrl;
+            }
+          </script>
+          <style>
+            .github-login-btn {
+              width: 225px;
+              height: 40px;
+              border-radius: 10px;
+              font-size: 16px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: #343a40; /* Dark background */
+              color: #fff; /* White text */
+              border: none; /* Remove default button border */
+              cursor: pointer;
+            }
+          </style>
+          <button onclick="githubLogin()" class="github-login-btn">
+            <i class="fab fa-github me-2"></i> Log in with GitHub
+          </button>
           <% end %>
         </div>
         <div class="pt-2 pr-2">

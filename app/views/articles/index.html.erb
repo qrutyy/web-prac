@@ -167,12 +167,12 @@
                 const clientId = 'Ov23li0asy7Sg041vJ2d'; 
                 const redirectUri = 'https://web-prac-fbka.onrender.com/auth/github/callback';
 
-                const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user`;
+                const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user,user:email`;
 
                 window.location.href = authUrl;
               }
             </script>
-            <button onclick="githubLogin()" class="btn btn-dark">
+            <button onclick="githubLogin()" class="btn btn-dark rounded-10">
               <i class="fab fa-github me-2"></i> Login with GitHub
             </button>
           <% end %>

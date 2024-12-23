@@ -26,25 +26,33 @@ class AuthController < ApplicationController
     end
   end
 
-  def github
-    auth_info = request.env["omniauth.auth"]
-    
-    github_uid = auth_info['uid']
-    first_name = auth_info['info']['name']
-    username = auth_info['info']['nickname']
-    email = auth_info['info']['email']
 
-    user = User.find_or_create_by(github_uid: github_uid) do |user|
-      user.first_name = first_name
-      user.username = username
-      user.email = email
-    end
+def github
+  auth_info = request.env["omniauth.auth"]
 
-    session[:authorized] = true
-    session[:user_id] = user.id
-
-    redirect_to root_path, notice: "Welcome, #{user.first_name}!"
+  if auth_info.nil?
+    Rails.logger.error("Omniauth returned nil auth_info")
+    redirect_to root_path, alert: "Authentication failed. Please try again."
+    return
   end
+
+  # Extract information with safe navigation in case some fields are missing
+  github_uid = auth_info.dig('uid')
+  first_name = auth_info.dig('info', 'name') || 'Unknown'
+  username = auth_info.dig('info', 'nickname') || 'Unknown'
+  email = auth_info.dig('info', 'email') || 'No Email Provided'
+
+  user = User.find_or_create_by(github_uid: github_uid) do |user|
+    user.first_name = first_name
+    user.username = username
+    user.email = email
+  end
+
+  session[:authorized] = true
+  session[:user_id] = user.id
+
+  redirect_to root_path, notice: "Welcome, #{user.first_name}!"
+end
 
   def github_failure
     session[:authorized] = false
